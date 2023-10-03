@@ -1,27 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    background: #fcfeff;
+}
+.bg-logo-colmena {
+    background: rgb(250,189,20);
+    background: linear-gradient(151deg, rgba(250,189,20,1) 1%, rgba(254,237,171,1) 69%);
+}
+
+.container-home {
+    background: #2b2b2b;
+}
+
+.welcome-container {
+    color: #66fcf1;
+    background-color: black;
+    /*background: url(https://images.pexels.com/photos/327540/pexels-photo-327540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center center fixed;*/
+    background: url(https://images.pexels.com/photos/4792732/pexels-photo-4792732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center center fixed;
+    height: calc(100vh - 210px);
+}
+h1 {
+    font-size: 24pt;
+    font-weight: 800;
+}
+
+.welcome-container p {
+    font-size: 18pt;
+    font-weight: 500;
+}
+.init-button {
+    color: #66fcf1!important;
+    font-weight: 600;
+    padding: 8px 60px;
+    border: 3px solid #66fcf1;
+    font-size: 20pt;
 }
