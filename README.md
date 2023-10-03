@@ -1,3 +1,29 @@
+# Prueba Colmena
+
+Prueba Colmena is a project that utilizes various web development technologies to create a web application. This README provides an overview of the project structure and instructions for development and deployment.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+    - [Development Dependencies](#development-dependencies)
+    - [Scripts](#scripts)
+- [License](#license)
+
+## Installation
+
+Before you can start working with this project, you need to install its dependencies. Make sure you have Node.js and npm (Node Package Manager) installed on your system.
+
+To install the project dependencies, run:
+
+
+```bash
+npm install
+```
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -14,11 +40,43 @@ pnpm dev
 bun dev
 ```
 
+### or with docker
+
+
+```bash
+docker build -t prueba-colmena .
+# after 
+docker run -p 3000:3000 -d prueba-colmena
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+
+## Development
+
+### Development Dependencies
+
+- **@types/node**, **@types/react**, **@types/react-dom**: TypeScript type definitions for Node.js, React, and ReactDOM.
+- **autoprefixer**: PostCSS plugin to parse CSS and add vendor prefixes.
+- **eslint**: Linting tool for JavaScript and TypeScript.
+- **eslint-config-next**: ESLint configuration for Next.js projects.
+- **postcss**: A tool for transforming styles with JavaScript plugins.
+- **tailwindcss**: A CSS framework for rapidly building custom user interfaces.
+
+### Scripts
+
+```json
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+}
+```
+
 
 ## Learn More
 
