@@ -5,33 +5,27 @@ import { Post }                      from '@/app/posts/dto/Post';
 import DeleteIcon                    from '@mui/icons-material/Delete';
 import useDialogs                    from '@/app/store/hooks/dialogs/useDialogs';
 import { useDeletePostMutation }     from '@/app/store/api/jsonPlaceholderApi';
-import { useState }                  from 'react';
 import useSnackbar                   from '@/app/store/hooks/snackbar/useSnackbar';
-
 
 const PostCard = (props:Post) => {
   const { post } = props;
   const { openConfirmationDialog } = useDialogs();
-  const [deleteId, setDeleteId] = useState( 0 );
   const [deletePost] = useDeletePostMutation();
   const { openSnackbarAction } = useSnackbar();
 
   const onConfirm = async () => {
     let message = 'Eliminado exitosamente', type = 'success';
-    try {
-      await deletePost(deleteId);
+    try{
+      await deletePost(post.id);
     } catch (e) {
       message = 'Error al guardar';
       type = 'error';
     }finally {
-      setDeleteId(0);
       openSnackbarAction({ message, type, });
     }
   }
 
-
-  const onClickAction = (id: number) => {
-    setDeleteId(id);
+  const onClickAction = () => {
     openConfirmationDialog('Está seguro que desea eliminar este elemento?', onConfirm, false, 'Confirmar Eliminación')
   }
 
@@ -50,7 +44,7 @@ const PostCard = (props:Post) => {
           <Link className="flex-1 mr-2" href={`/posts/${post.id}`}>
             <Button className="!w-full"  variant="outlined"> Ver Post </Button>
           </Link>
-          <IconButton aria-label="delete" color="error" onClick={()=> onClickAction(post.id)}>
+          <IconButton aria-label="delete" color="error" onClick={onClickAction}>
             <DeleteIcon />
           </IconButton>
         </div>
